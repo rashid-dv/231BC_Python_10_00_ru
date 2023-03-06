@@ -51,8 +51,8 @@ def имя_функүии(параметры):
     инструция/тело функции
  '''
 #Аргументы и возвращаемые значения
-# аргументы - то что указывается при создании функции,
-# параметры - то, что передается в качестве аргунтов для функции
+# аргументы - то что указывается при создании функции
+# параметры -то, что передается в качестве аргунтов для функции
 '''
 Виды функций:
 1)ничего не принимает ничего не возвращает
@@ -112,20 +112,36 @@ print(foo(int(input()),int(input())))
 '''
 1.Напишите функцию, которая принимает два числа в качестве параметра и отображает все четные числа между ними.
 2.Напишите функцию, которая отображает горизонтальную или вертикальную линию из некоторого символа.
- Функция принимает в качестве параметра: длину линии, направление, символ. Задание
+ Функция принимает в качестве параметра: длину линии, направление, символ. 
+ ( сделать так, чтобы если пользователь вводил направление с большой буквы, программа работала верно)
 3. Напишите функцию, которая возвращает максимальное из четырёх чисел. 
  Числа передаются в качестве параметров.  
 4. Напишите функцию, которая возвращает сумму чисел в указанном диапазоне. Границы диапазона передаются в качестве параметров.
 '''
-
-def sequences_odd_num(number_1,number_2):
+#1
+'''def sequences_odd_num(number_1,number_2):
     for i in range(number_1,number_2+1):
         if i%2!=0:
             print(i)
 
 sequences_odd_num(1,10)
+'''
+#2
+'''
+def symbol_destination(length,destination,symbol):
+    if destination == 'horizontal':
+        print(symbol*length)
+    elif destination == 'vertical':
+        for i in range(0,length+1):
+            print(symbol)
 
+length = int(input('Write length: '))
+destination = input('Choose destiantion:\'horizontal\' or \'vertical\':\n ')
+symbol = input('Write symnol: ')
+symbol_destination(length,destination,symbol)
+'''
 #___________________________________________________________________
+
 
 # Организация функций
 '''
@@ -316,4 +332,42 @@ print(max(list_el_2))
 x = 2
 print(type(eval('x+6')))
 '''
+
+'''def foo():
+    pass
+
+def foo2():
+    pass
+def foo3():
+    pass
+
+def foo4():
+    pass
+def foo5():
+    pass
+def Foo():
+    pass
+
+def main():
+    foo()
+    foo2()
+    foo4()
+    foo3()
+    foo5()
+
+main()'''
+
+
+'''def fun(a, b, c, d):
+    print(a, b, c, d)
+
+my_list = [111, 10.5, False, 'Hello']
+# Unpacking list into four arguments
+fun(*my_list)
+'''
+def summ_elements(*args):
+    list_el = [args]
+    return list_el
+
+print(summ_elements(1, 2, 3, 4, 5,10,15))
 
