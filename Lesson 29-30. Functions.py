@@ -38,7 +38,20 @@ print_person("Bob", age = 41, company ="Microsoft")
 
 
 '''
+# position arg-s
+'''
+def print_person(name, age):
+    print(f"Name: {name}  Age: {age}")
+print_person("Rafael", 21)
+'''
+#default arg-s
+'''
+def print_person(name, age = 19):
 
+    print(f"Name: {name}  Age: {age}")
+
+print_person("Rafael")
+'''
 #	Область видимости, правило LEGB.
 '''
 ОБЛАСТЬ ВИДИМОСТИ
@@ -97,8 +110,8 @@ print(football())
 У функций те же свойства и методы, что и у объектов(OOП).
 Функцию можно передать в качестве аргумента при вызове другой функции.
 
-def my_object(text):
-    return text.upper()  
+def my_object():
+    return text.textupper()  
 
 print(my_object("Вызов my_object"))    
 upper = my_object  
@@ -153,6 +166,15 @@ False
 ******
 '''
 
+'''
+def power(x,y):
+    if y == 0:
+        return 1
+    elif y ==1:
+        return x
+    else:
+        return x*power(x,y-1-)#5*power(5,4)=3125->5*power(5,3)= 625->5*power(5,2)=125->5*power(5,1) = 25
+print(power(5,5))'''
 
 '''length = int(input("insert length:"))
 symbol = input("isnert simvol")
@@ -202,14 +224,120 @@ square(length,symbol,choice)'''
 
 #Замыкание.
 
+#packing
+'''def mySum(*args,summ=0):
 
-for i in range(1,10):
-    print('*'*i)
+    for i in args:
+        summ+=i
+        print(summ)
+    return summ
+
+print(mySum(1, 2, 3, 4, 5.5,12.9,123,1,23,123,1,424,142))
+'''
+#unpacking
+'''
+def fun(a, b, c, d):
+    print(a, b, c, d)
+my_list = [1, 2, 3, 4]
+# Unpacking list into four arguments
+fun(*my_list)
+'''
+
+'''def summ(*args):
+    slojeniye=0
+    for i in args:
+        slojeniye += i
+        print(slojeniye)
+    return slojeniye
 
 
+print(summ(1,5,8,11,212))'''
 
-for i in range(10):
-    for l in range(10):
-        print('*',end=' ')
-    print()
 
+'''n = 120
+print(n)#120
+def change_value():
+    global n
+    n+=15
+    print(n)#135
+change_value()
+
+print(n)#'''
+
+'''def football():
+    x = 'Ronaldo'
+    print(x)
+    def argentina():
+        nonlocal x
+        x = 'Messi'
+        print(x)
+    argentina()
+    return x
+
+print(football())'''
+
+'''
+def my_object(text):
+    return text
+
+print(my_object("Вызов my_object"))
+upper = my_object
+print(upper("Вызов upper"))
+
+text = input()
+print(my_object(text.lower()))'''
+
+
+#7!= 7*6*5*4*3*2*1 -
+#Factorial - это представление числа как результат умножения
+# чисел начиная с 1 заканчивая самим этим числом включительно
+'''def factorial(n):
+    result = 1
+    for i in range(1, n + 1):
+        result *= i
+    return result
+
+print(factorial(7))'''
+'''
+def factorial_recursion(n): #5
+    if n==0 or n==1 or n == 2:
+        return n
+    else:
+        return n*factorial_recursion(n-1)
+
+print(factorial_recursion(7))'''
+'''
+
+def factorial_recursion(5):
+    if n==0 or n==1 or n == 2:
+        return 5
+    else:
+        return 5*factorial_recursion(5-1) # 5 *4 =20
+                            |
+                            ->   
+                                def factorial_recursion(4):
+                                    if n==0 or n==1 or n == 2:
+                                        return 4
+                                    else:
+                                        return 4*factorial_recursion(4-1)# 4*3 = 12
+                                                        |
+                                                        ->
+                                                            def factorial_recursion(3):
+                                                                if n==0 or n==1 or n == 2:
+                                                                    return 3
+                                                                else:
+                                                                    return 3*factorial_recursion(3-1)#3*2 = 6
+                                                                                    |
+                                                                                    ->
+                                                                                    def factorial_recursion(2):
+                                                                                        if n==0 or n==1 or n == 2:
+                                                                                            return 2 # 2
+                                                                                        else:
+                                                                                            return 2*factorial_recursion(2-1)
+
+        
+        
+
+        
+
+'''

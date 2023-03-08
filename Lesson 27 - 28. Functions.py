@@ -212,16 +212,3 @@ print(summ_elements(1, 2, 3, 4, 5,10,15))
 
 '''
 
-
-def main():
-    say_hello()
-    say_goodbye()
-
-def say_hello():
-    print("Hello")
-
-def say_goodbye():
-    print("Good Bye")
-
-# Вызов функции main
-main()
