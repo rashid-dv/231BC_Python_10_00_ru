@@ -125,11 +125,3 @@ def info(value):
         print(f'your name{name}')
     print_info()
 info('Rafael')'''
-
-def my_reduce(function,list_el,initial=1):#summ=0
-    for iterable in list_el:
-        initial= function(initial,iterable)
-    return initial
-
-list_el = [1,2,3,4,5,6,7,8,9,10]
-print(my_reduce(lambda x,y: x*y,list_el))
