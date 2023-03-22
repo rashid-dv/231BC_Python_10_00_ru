@@ -126,35 +126,7 @@ car.update({"color": "White"})
 
 '''
 
-# Example
-'''
-Создайте программу «Англо-французский словарь».
-Нужно хранить слово на английском языке и его перевод
-на французский. Требуется реализовать возможность добавления, удаления, поиска, замены данных. Используйте
-словарь для хранения информации.
-'''
-'''
-# Создаем пустой словарь
-dictionary = {}
 
-# Определяем функцию для добавления новых слов
-def add_word():
-    pass
-# Определяем функцию для удаления слов
-def remove_word():
-    pass
-
-# Определяем функцию для поиска слов
-def search_word():
-    pass
-
-# Определяем функцию для замены перевода слова
-def replace_word():
-    pass
-
-# Определяем функцию main c бесконечным циклом для взаимодействия с пользователем (menu)
-def main():
-    pass'''
 
 # Practise
 '''
@@ -212,3 +184,247 @@ banana, apple, bananamango, mango, strawberry-banana.
 Требуется реализовать возможность добавления, удаления, поиска, замены данных. Используйте словарь для
 хранения информации.
 '''
+
+#Tuple
+'''
+info= 1,2,3,4,6,True,'helo',('world',23)
+print(info)
+
+tuple_el = (1,2,3,4,5)
+print(tuple_el)
+print(type(tuple_el))
+
+for i in tuple_el:
+    print(i)
+
+print(tuple_el[4])
+del tuple_el[2]
+
+print(tuple_el)
+'''
+
+#Set
+'''set_el = {54,(1,232,False,4,False),True,False,0,1,213.321,'Hello'}
+print(set_el)
+print(type(set_el))
+set_el.add('Pelmeni')
+print(set_el)
+a =set_el.copy()
+set_el.clear()
+print(set_el)
+print(a)
+new_set = {55,'Khinkhali',True,False,0,1,213.321,'Hello'}
+print(a.difference(new_set))
+print(new_set.difference(a))
+a.difference_update(new_set)
+print(a)
+
+x = a.intersection(new_set)
+print(x)
+x= a.intersection_update(new_set)
+
+set_1 = {"apple", "banana", "cherry"}
+set_2 = {"google", "microsoft", "apple"}
+z = x.difference(y)
+print(z)
+z = x.difference_update(y)
+print(z)
+z = set_1.intersection(set_2)
+print(z)
+set_2.intersection_update(set_1)
+print(set_2)
+
+set_1.discard('google')
+print(set_1)
+set_2.remove('banana')
+print(set_2)
+
+a= set_1.union(set_2)
+print(a)
+set_1.update(set_2)
+print(set_1)
+
+'''
+
+#Frozen set
+'''
+names = frozenset({"Rafael", "Tengiz", "Orhan"})
+print(names)
+'''
+
+#Dictionary
+
+'''dict_el = {
+    'bmw':['m5','m8','m3'],
+    "rollce royce":
+        {
+        'fantom':2017,
+        'ghost': 1950
+            },
+    'mclaren':'b1',
+    'pagani':'huayra',
+    'b':'m5'
+}
+
+print(dict_el['bmw'][2])
+print(dict_el['rollce royce']['fantom'])
+
+user_info = {
+    'Emin':{
+        'telephone':+994272673273,
+        'email':'emineminchin@gmail.com',
+        'home key':'home access'
+    }
+}'''
+
+'''tel_code_tuple = [
+    ("+994", "AZE"),
+    ("+5", "USA"),
+    ("+49", "Germany"),
+)
+users_dict = dict(tel_code_tuple)
+print(users_dict)
+
+users_dict['+380']='Ukraine'
+print(users_dict)
+users_dict['+380']='Ukraine country'
+print(users_dict)'''
+
+'''dict_el = {
+    'bmw':['m5','m8','m3'],
+    "rollce royce":
+        {
+        'fantom':2017,
+        'ghost': 1950
+            },
+    'mclaren':'b1',
+    'pagani':'huayra'
+}
+'''
+#print(len(dict_el))
+#print(dict_el['rollce royce'])
+'''for key in dict_el.keys():
+    print(key)
+print('_'*50)
+for value in dict_el.values():
+    print(value)
+
+for key,value in dict_el.items():
+    print(f'key = {key} value = {value}')
+
+key_sequences = range(1,5)
+value = 10,124,90.1
+thisdict = dict.fromkeys(key_sequences, value)
+print(thisdict)
+
+a = dict_el.get('bmw')
+print(a)
+
+b = dict_el.pop('mclaren')
+print(b)
+print(dict_el)
+
+
+dict_el.popitem()
+print(dict_el)
+
+
+car = {
+  "brand": "Ford",
+  "model": "Mustang",
+  "year": 1964
+}
+
+dict_el.update(car)
+print(dict_el)'''
+
+
+# Example
+'''
+Создайте программу «Англо-Русский словарь».
+Нужно хранить слово на английском языке и его перевод
+на русском. Требуется реализовать возможность добавления,
+удаления, поиска, замены данных в словаре. Используйте
+словарь для хранения информации.
+'''
+'''
+# Создаем пустой словарь
+dictionary = {}
+
+# Определяем функцию для добавления новых слов
+def add_word():
+    pass
+# Определяем функцию для удаления слов
+def remove_word():
+    pass
+
+# Определяем функцию для поиска слов
+def search_word():
+    pass
+
+# Определяем функцию для замены перевода слова
+def replace_word():
+    pass
+
+# Определяем функцию main c бесконечным циклом для взаимодействия с пользователем (menu)
+def main():
+    pass'''
+'''
+dictionary = {}
+
+def add_items():
+    eng_word=input('Write a word in english ')
+    rus_word=input('Write the translation of the word in russian ')
+    dictionary[eng_word] = rus_word
+    print(f'{eng_word} words translation is {dictionary[eng_word]}')
+def del_items():
+    eng_word = input('Write a word in english ')
+
+    if eng_word in dictionary:
+        del dictionary[eng_word]
+        print(f'word {eng_word} was deleted from dictionary')
+    else:
+        print(f'word {eng_word} was not found in dictionary')
+def find_items():
+    eng_word = input('Write a word in english ')
+    if eng_word in dictionary:
+        print(f'word {eng_word} was found with translation {dictionary[eng_word]}')
+    else:
+        print(f'word {eng_word} was not found in dictionary')
+
+def change_items():
+    eng_word = input('Write a word in english ')
+    rus_word = input('Write the translation of the word in russian ')
+    if eng_word in dictionary:
+        dictionary[eng_word] = rus_word
+        print(f'word {eng_word} changed translation to {dictionary[eng_word]}')
+    else:
+        print(f'word {eng_word} was not found in dictionary,let`s add it')
+        add_items()
+def print_dict():
+    print(dictionary)
+
+def main():
+    while True:
+        choice = int(input('Choose option:'
+                       '\n1. Add item'
+                       '\n2. Delete item'
+                       '\n3. Find item'
+                       '\n4. Change item'
+                       '\n5. Print all word in dictionary'
+                       '\n--Write any number to exit--\n'))
+        if choice==1:
+            add_items()
+        elif choice==2:
+            del_items()
+        elif choice==3:
+            find_items()
+        elif choice==4:
+            change_items()
+        elif choice==5:
+            print_dict()
+        else:
+            print('Bye')
+            break
+
+main()'''
