@@ -77,8 +77,31 @@ def merge(left_half, right_half):
 # Линейный поиск - это простой алгоритм поиска элемента в списке.
 # Он проходится по всем элементам списка по очереди, пока не найдет нужный элемент.
 # Реализация может выглядеть так:
-
+'''
+def linear_search(list,trigger):
+    for i in range(len(list)):
+        if list[i]==trigger:
+            return i
+    return -1
+'''
 
 # Бинарный поиск -  это алгоритм поиска элемента в отсортированном списке.
 # Он работает путем деления списка на половины и проверки целевого значения в каждой половине.
 # Если значение присутствует в списке, алгоритм вернет его индекс, в противном случае вернет -1
+def binary_search(arr,trigger):
+    low_border = 0
+    high_border = len(arr)-1
+
+    while low_border<=high_border:#0-7 5 -7 0-3
+        middle = (low_border+high_border)//2#4
+        if arr[middle]==trigger:
+            return middle
+        elif arr[middle]<trigger:
+            low_border=middle +1# low = 5
+        else:
+            high_border = middle-1 # high 3
+
+    return -1
+
+arr = [32,32,2,41,3,8,85,45]
+print(binary_search(arr,85))
