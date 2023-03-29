@@ -181,87 +181,6 @@ with open("hello.txt","a") as FileHandler:
 4.  Удаление заданной по номеру строки из файла
 '''
 
-# 2.Бинарные файлы
-'''
-Бинарные файлы в отличие от текстовых хранят информацию в виде набора байт.
-'''
-# 2.1.Binary methods
-'''
-import pickle - модуль необходимый для работы с бинарными файлами
-
-dump(obj, file): записывает объект obj в бинарный файл file
-load(file): считывает данные из бинарного файла в объект
-
-import pickle
-
-FILENAME = "user.dat"
-
-name = "Tom"
-age = 19
-
-with open(FILENAME, "wb") as file:
-    pickle.dump(name, file)
-    pickle.dump(age, file)
-
-with open(FILENAME, "rb") as file:
-    name = pickle.load(file)
-    age = pickle.load(file)
-    print("Имя:", name, "\tВозраст:", age)
-
-
-import pickle
-
-FILENAME = "users.doc"
-
-users = [
-    ["Tom", 28, True],
-    ["Alice", 23, False],
-    ["Bob", 34, False]
-]
-
-with open(FILENAME, "wb") as file:
-    pickle.dump(users, file)
-
-with open(FILENAME, "rb") as file:
-    users_from_file = pickle.load(file)
-    for user in users_from_file:
-        print("Имя:", user[0], "\tВозраст:", user[1], "\tЖенат(замужем):", user[2])
-'''
-
-# 3.Установщик пакетов pip
-'''
-Система управления пакетами, которая используется для установки и
- управления программными пакетами, написанными на Python
-'''
-# 3.1.Необходимость использования
-'''
-Update pip:
-python -m pip install --upgrade pip
-
-Install Specific Version of a Package:
-pip install <package-name>==<version>
-
-Uninstall a Package:
-pip uninstall <package-name
-
-Information About an Installed Package
-pip show <package name>
-
-List All Installed Packages
-pip list
-
-Searching for Packages
-pip search "query"
-
-py -m pip install SomePackage-1.0-py2.py3-none-any.whl
-
-'''
-
-# https://metanit.com/python/tutorial/4.3.php
-# https://metanit.com/python/tutorial/4.6.php
-# https://metanit.com/python/tutorial/4.5.php
-# https://metanit.com/python/tutorial/4.7.php
-
 
 '''def fileWork(file,fileMode,info = None):
     fileHandler = open(file,fileMode)
@@ -320,7 +239,7 @@ except Exception as ex:
 # Example
 # записывать введенный пользователем массив строк и считывать его обратно из файла на консоль:
 
-my_file_path = r"C:\Users\Aghashirinov_r\PycharmProjects\pythonProject\files\FileArrayString.txt"
+'''my_file_path = r"C:\Users\Aghashirinov_r\PycharmProjects\pythonProject\files\FileArrayString.txt"
 list_strings = list()
 
 for i in range(4):
@@ -335,6 +254,10 @@ with open(my_file_path,"a") as file:
 with open(my_file_path,"r") as file:
     print(file.read())
     data = file.read()
-    data.isalpha()
+    data.isalpha()'''
 
 
+# https://metanit.com/python/tutorial/4.3.php
+# https://metanit.com/python/tutorial/4.6.php
+# https://metanit.com/python/tutorial/4.5.php
+# https://metanit.com/python/tutorial/4.7.php
