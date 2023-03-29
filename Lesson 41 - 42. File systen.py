@@ -42,22 +42,58 @@ with open(FILENAME, "rb") as file:
 
 '''
 
-from pickle import dump,load
+#from pickle import dump,load
 
-doc_file = r'C:\Users\Aghashirinov_r\PycharmProjects\pythonProject\files\test.doc'
-
+#doc_file = r'C:\Users\Aghashirinov_r\PycharmProjects\pythonProject\files\test.doc'
+'''
 Car = ['BMW','Rolls-Royce','Porshe','Bugatti']
+Cars_info = [['BMW','m5',2022,2.8],
+             ['Rolls-Royce','GHOST',2020,4.5],
+             ['Porshe','Taycan',2019,2.7],
+             ['Bugatti','Chiron',2018,2.1]]
 
 with open(doc_file,"wb") as fileHandler:
-    for i in Car:
+    for i in Cars_info:
         dump(i,fileHandler)
 
 with open(doc_file,"rb") as fileHandler:
-    for j in range(len(Car)):
-        print(load(fileHandler))
+    for i in range(len(Cars_info)-1):
+        x = load(fileHandler)
+        print(x)
+        for j in range(len(Cars_info[i])):
+            print(f'position number = {j} has element with value = {x[j]}')
+'''
 
+#image = r'C:\Users\Aghashirinov_r\Downloads\python.png'
+'''with open(doc_file,'wb') as file:
+    with open(image, 'rb') as image:
+        file.write(image.read())'''
 
+'''1. Поиск и замена слов списка в содержимом бинарного файла
+2. Подсчет количества слов и чисел(по отдельности) в содержимом бинарного файла
+3. Вывести слова спрятанные за ключами в словаре в содержимом бинарном файле
+'''
 
+from pickle import dump,load
+doc_file = r'C:\Users\Aghashirinov_r\PycharmProjects\pythonProject\files\test.doc'
+
+list_el = ['a','b','c',1,2,3,4]
+with open(doc_file,"wb") as fileHandler:
+
+        dump(list_el,fileHandler)
+
+with open(doc_file,'rb') as fileHandler:
+    temp = load(fileHandler)
+    slovo_nayti = input()
+    slobo_zamenit = input()
+    for i in range(len(list_el)):
+        if temp[i]==slovo_nayti:
+            temp[i]=slobo_zamenit
+    with open(doc_file,'wb') as fileHandler:
+        dump(temp,fileHandler)
+
+with open(doc_file, 'rb') as fileHandler:
+    print(load(fileHandler))
 # 3.Установщик пакетов pip
 '''
 Система управления пакетами, которая используется для установки и
