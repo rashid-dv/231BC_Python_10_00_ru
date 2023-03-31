@@ -6,6 +6,7 @@
 a = int(input())#67
 
 if a >= 0 and a<10:#1-9
+
     print('cto-to')
 
 elif a>10 and a<20: #11 - 19
