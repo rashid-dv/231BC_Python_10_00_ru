@@ -278,4 +278,5 @@ print(MyClass.my_static_method(1, 2)) # выведет 3
 '''
 
 
-print('Hakuna matata')
+def foo():
+    pass
