@@ -69,6 +69,40 @@ add('str', 'Hi ', 'Geeks')
 Python является динамически типизированным языком и следовательно,
 перегрузка методов здесь невозможна, тем не менее,
 есть простой способ реализовать такое поведение в Python.
+1. Использование аргументов со значениями по умолчанию: 
+class MyClass:
+    def my_method(self, a, b=None):
+        if b:
+            print(a, b)
+        else:
+            print(a)
+
+obj = MyClass()
+obj.my_method(1) 
+obj.my_method(1, 2)
+2.Использование декоратора @overload из модуля typing:
+
+from typing import overload
+class MyClass:
+    @overload
+    def my_method(self, a: int) -> None:
+        pass
+
+    @overload
+    def my_method(self, a: int, b: int) -> None:
+        pass
+
+    def my_method(self, a, b=None):
+        if b:
+            print(a, b)
+        else:
+            print(a)
+
+obj = MyClass()
+obj.my_method(1) # Выводит: 1
+obj.my_method(1, 2) # Выводит: 1 2
+
+
 
 Magic-методы, конструкторы.
 Конструктор - это функция которая вызывается, как только создается экземпляр класса
