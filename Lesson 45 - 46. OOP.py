@@ -80,30 +80,34 @@ class MyClass:
 obj = MyClass()
 obj.my_method(1) 
 obj.my_method(1, 2)
-2.Использование декоратора @overload из модуля typing:
+2.Использование декоратора singledispatch:
 
-from typing import overload
+from functools import singledispatch
+
 class MyClass:
-    @overload
-    def my_method(self, a: int) -> None:
-        pass
+    @singledispatch
+    def my_method(self, a):
+        raise NotImplementedError('Метод не реализован для этого типа данных')
 
-    @overload
-    def my_method(self, a: int, b: int) -> None:
-        pass
+    @my_method.register(int)
+    def _(self, a: int):
+        return a + 1
 
-    def my_method(self, a, b=None):
-        if b:
-            print(a, b)
-        else:
-            print(a)
+    @my_method.register(str)
+    def _(self, a: str):
+        return a.upper()
 
 obj = MyClass()
-obj.my_method(1) # Выводит: 1
-obj.my_method(1, 2) # Выводит: 1 2
+print(obj.my_method(10)) # Выводит: 11
+print(obj.my_method("hello")) # Выводит: "HELLO"
 
+По умолчанию, если переданный объект не является зарегистрированным типом, 
+будет выброшено исключение NotImplementedError.
+Однако, можно зарегистрировать функцию-обработчик по умолчанию,
+используя декоратор @<имя_функции>.register(object)
+'''
 
-
+'''
 Magic-методы, конструкторы.
 Конструктор - это функция которая вызывается, как только создается экземпляр класса
 В Python имена методов, которые имеют ведущее и последующее двойное подчеркивание - называют магическими методами
