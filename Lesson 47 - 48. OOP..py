@@ -1,6 +1,5 @@
 #Статические методы и методы класса.
 '''
-
 Статический метод - это метод класса, который связан с классом, а не с его экземплярами.
 Он не требует создания экземпляра класса для вызова и может быть вызван напрямую из класса.
 
@@ -18,13 +17,12 @@
         return x + y
 
 print(MyClass.my_static_method(1, 2)) # выведет 3
-
-
 '''
 
 # Инкапсуляция.
 '''
-Инкапсуляция в Python - это механизм, который позволяет скрыть реализацию данных внутри класса от внешнего мира.
+Инкапсуляция в Python - это механизм, который позволяет предотвратить
+изменение реализованных данных внутри класса.(сторонее изменения ваших полей)
 
 Общедоступный, внутренний и приватный метод.
 В Python есть три типа видимости: public, protected и private.
@@ -80,7 +78,7 @@ print(child_object.__private_attribute)    # AttributeError: 'MyChildClass' obje
 
 Декоратор @property используется для создания геттера,который позволяет получать значение атрибута,
 Декоратор @<attr>.setter используется для создания сеттера, который позволяет устанавливать значение атрибута.
-
+PROTECTED:
 class Person:
     def __init__(self, name, age):
         self._name = name
@@ -114,6 +112,32 @@ person.age = 35
 print(person.age)    # 35
 
 
+PRIVAT:
+class Human:
+    def __init__(self, name, age):
+        self.__name = name
+        self.__age = age
+
+    def get_name(self):
+        return self.__name
+    def set_name(self, value):
+        self.__name = value
+    def get_age(self):
+        if self.__age<0:
+            raise ValueError('Person cant have negative age')
+        else:
+            return self.__age
+    def set_age(self,value):
+        self.__age=value
+
+
+human = Human('Ali',20)
+
+human.set_name('Aleksandr')
+print(human.get_name())
+print(human.get_age())
+human.set_age(15)
+print(human.get_age())
 '''
 # Exercises:
 '''
@@ -197,7 +221,7 @@ a.foo()
 '''
 
 
-class Person:
+'''class Person:
     def __init__(self,name):
         self.name = name
 
@@ -215,4 +239,102 @@ class Person:
 Human = Person('Gosha')
 print(Human.print_info())
 print(Human.salary(5000,True))
-print(Person.salary(105000,False))
+print(Person.salary(105000,False))'''
+
+'''
+class Student:
+
+    def __init__(self,name,age,hobby):
+        self.name = name
+        self.age = age
+        self.progress = 0
+        self.hobby = hobby
+
+    def display_info(self):
+        print(self.name,self.age,self.hobby)
+
+    def study(self,subject,study):
+
+        if study:
+            self.progress += 1
+            print(f'You study {subject} and your progress = {self.progress} out of 10')
+        else:
+            self.progress-=1
+            print(f'Your study progress decreased by 1. Overall progress = {self.progress} out of 10')
+
+hobby = input()
+student = Student("Rashad", 24, hobby )
+student.display_info()
+student.name = 'gosha'
+student.age = '40'
+student.hobby = 'Рыбалка'
+student.display_info()'''
+
+'''class Employee:
+
+    def __init__(self,name,age,job_title):
+        self._name = name
+        self._age = age
+        self._job_title = job_title
+
+    def _display_info(self):
+        print(self._name,self._age,self._job_title)
+
+
+class Person(Employee):
+    def display_info(self):
+        super()._display_info()
+
+employee = Person("Richard", 25, 'Google software engineer' )
+employee.display_info()
+'''
+
+'''class Teacher:
+    def __init__(self,name,age,subject):
+        self.__name = name
+        self.__age = age
+        self.__subject = subject
+
+    def __display_info(self):
+        print(self.__name,self.__age,self.__subject)
+
+
+class Knowledge(Teacher):
+    def display_info(self):
+        super().__display_info()
+        
+
+teacher = Teacher('Irina',54,'History')
+#teacher.__display_info()
+teacher.
+student_knowledge = Knowledge('Samira', 35 , 'Geografy')
+student_knowledge.display_info()
+'''
+
+'''
+class Human:
+    def __init__(self, name, age):
+        self.__name = name
+        self.__age = age
+
+    def get_name(self):
+        return self.__name
+    def set_name(self, value):
+        self.__name = value
+    def get_age(self):
+        if self.__age<0 or self.__age>100:
+            raise ValueError('Person cant have negative age')
+        else:
+            return self.__age
+    def set_age(self,value):
+        self.__age=value
+
+
+human = Human('Ali',20)
+
+human.set_name('Aleksandr')
+print(human.get_name())
+print(human.get_age())
+human.set_age(100)
+print(human.get_age())'''
+
