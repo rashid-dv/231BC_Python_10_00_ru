@@ -206,3 +206,4 @@ hobby = input()
 student = Student("Rashad", 24, hobby )
 '''
 
+
