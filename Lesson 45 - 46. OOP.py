@@ -121,65 +121,7 @@ len(list)
 https://habr.com/ru/post/186608/
 
 '''
-# example
-'''import random
 
-
-class Dice:
-    def __init__(self, sides=6):
-        self.sides = sides
-
-    def __repr__(self):
-        return f"Dice with {self.sides} sides"
-
-    def __str__(self):
-        return f"Dice with {self.sides} sides"
-
-    def __add__(self, other):
-        return Dice(self.sides + other.sides)
-
-    def __sub__(self, other):
-        return Dice(self.sides - other.sides)
-
-    def __eq__(self, other):
-        return self.sides == other.sides
-
-    def __ne__(self, other):
-        return self.sides != other.sides
-
-    def __lt__(self, other):
-        return self.roll() < other.roll()
-
-    def __le__(self, other):
-        return self.roll() <= other.roll()
-
-    def __gt__(self, other):
-        return self.roll() > other.roll()
-
-    def __ge__(self, other):
-        return self.roll() >= other.roll()
-
-    def roll(self):
-        return random.randint(1, self.sides)
-
-# Создание объектов Dice с разным количеством граней
-d6 = Dice()
-d10 = Dice(10)
-
-# Бросок костей
-print(f"D6 roll: {d6.roll()}")
-print(f"D10 roll: {d10.roll()}")
-
-# Сложение костей
-d16 = d6 + Dice(10)
-print(f"D6 + D10 = {d16}")
-
-# Сравнение результатов бросков
-print(f"D10 > D6: {d10 > d6}")
-print(f"D10 == D6: {d10 == d6}")
-print(f"D6 < D10: {d6 < d10}")
-
-'''
 
 
 '''
