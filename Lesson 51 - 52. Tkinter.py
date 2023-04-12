@@ -6,7 +6,7 @@ Tkinter - это стандартная библиотека Python для со�
  кнопки, текстовые поля, меню, диалоговые окна и другие элементы интерфейса.
 
 
-Tkinter базируется на библиотеке Tcl/Tk, которая написана э
+Tkinter базируется на библиотеке Tcl/Tk, которая написана на
 на языке программирования Tcl и является кросс-платформенной,
 что означает, что приложения, созданные с помощью Tkinter,
 могут работать на разных операционных системах, таких как Windows, Linux и Mac.
@@ -66,8 +66,8 @@ root.title("First application")  # устанавливаем заголовок
 root.iconbitmap(default="file.ico") # Установка иконки.  параметр default в метод iconbitmap передается путь к иконки
 
 #Alternative iconbitmap:
-# icon = PhotoImage(file = "icon2.png")
-# root.iconphoto(False, icon) #Первый параметр казывает, надо ли использовать иконку по умолчанию для всех окон приложения.
+image = PhotoImage(file = 'image_and_icons\my_app.png')
+root.iconphoto(False,image) #Первый параметр казывает, надо ли использовать иконку по умолчанию для всех окон приложения.
 
 root.geometry("350x400")  # устанавливаем размеры окна
 root.geometry('500x500+500+200') # Устанавливаем размеры окна и задаем его координаты
@@ -78,14 +78,6 @@ root.config(width=300, height=500,bg='black') #используется для �
 
 # root.minsize(300,300) минимальный такой будет
 # root.maxsize(800,800) макс и не более
-
-
-label=Label()
-label = Label(text="Hello students")  # создаем текстовую метку
-# label.config(text='Hello world',fg='yellow',bg='black',font='Arial 20 bold italic')
-label.pack()  # размещаем метку в окне
-label.pack(side = LEFT, anchor = SE)
-label.place(x = 50, y =100)  
 
 root.mainloop()
 
@@ -121,22 +113,18 @@ Label - это виджет в библиотеке Tkinter, который ис
 from tkinter import *
 
 root = Tk()
-root.geometry('400x300')
-root.resizable(False,True)
-text = Label(text='Life is good',font='Roboto 20',fg='black',bg='yellow')
-text.pack()
+root.geometry('600x400')
+root.resizable(False,False)
+root.title('Test')
+root.iconbitmap(default='image_and_icons\programming.ico')
 
-clicks = 0
-def click():
-    global clicks
-    clicks += 1
-    button['text']='Clicks',clicks#f"Clicks {clicks}"
 
-button = Button(text='Click me',command=click)
-button.config(background='blue',fg='yellow')
-button.pack()
+lbl = Label(text = 'No name')
+lbl.config(fg= '#003366',bg='#006600',font = ('Arial',32,'bold', 'italic', 'underline'))
+lbl.pack()
+lbl.place(x= 100, y = 100)
+
 root.mainloop()
-
 '''
 
 #Задание
@@ -150,16 +138,26 @@ Fruits
 4)orange
 
 каждое слово должно быть разных цветов
-'''
-'''fruits = ['apple','mango','pear','orange']
-colors = ['lightblue','orange','red','black']
-label = Label(window, text = 'Fruits', fg = colors[1], font = ('Comic Sans MS' , 18, bold)
-    label.pack()
+
+from tkinter import *
+root = Tk()
+root.geometry('600x400')
+root.resizable(False,False)
+root.title('Test')
+root.iconbitmap(default='image_and_icons\programming.ico')
+
+fruits = ['fruits','apple','mango','banana']
+colors = ['Black','red','Orange','Yellow']
+
 
 for i in range(len(fruits)):
-    label = Label(window, text = f'{i+1}) {fruits[i]}', fg = colors[i], font = ('Comic Sans MS' , 15, bold)
-    label.pack()
+    lbl = Label(text= f'{i+1}) {fruits[i]}',fg = colors[i])
+    lbl.pack()
+
+root.mainloop()
+
 '''
+
 
 # Button
 '''
@@ -167,40 +165,24 @@ for i in range(len(fruits)):
 
 command: функция, которая вызывается при нажатии на кнопку
 
-from tkinter import *
 def say_hello():
     print("Hello, World!")
-root = Tk()
 my_button = Button(root, text="Click Me!", command=say_hello)#say_hello без скобок, т.к. мы передаем ссылку на нашу функцию, если укажем скобки, то программа будет пытаться сразу запустить функцию
 my_button = Button(root, text="Click Me!", command= lanbda:say_hello())#say_hello() в лямбде , чтобы можно было передать аргументы в функии 
-my_button.pack()
-root.mainloop()
 
 image: ссылка на изображение, которое отображается на метке
 
-from tkinter import *
-root = Tk()
 photo = PhotoImage(file="my_image.png")
 my_button = Button(root, text="Click Me!", image=photo, compound="left")
-my_button.pack()
-root.mainloop()
 
 state: состояние кнопки
-
-from tkinter import *
-root = Tk()
 my_button = Button(root, text="Click Me!", state="disabled")
-my_button.pack()
-root.mainloop()
 
 text: устанавливает текст метки
 width: ширина виджета
 
-from tkinter import*
-window = Tk()
 button = Button(text='Click on me',bg='red',font='Roboto 20',width=20,height=5)
-button.pack()
-window.mainloop()
+
 
 '''
 
@@ -209,16 +191,6 @@ window.mainloop()
 при кликании на кнопку его фон должен поменять
 цвет и остаться таким(background)
 '''
-'''
-from tkinter import *
-def say_hello():
-    button.config(bg='violet', text='wow')
-root = Tk()
-button = Button(text='Click',bg='red',fg='red',font='Roboto 20',width=20,height=5, command=say_hello)
-button.config(activebackground='green',activeforeground='White',bd=5,pady=20,state=ACTIVE)
-
-button.pack()
-root.mainloop()'''
 
 # Entry
 '''
@@ -238,20 +210,47 @@ delete(first, last=None): удаляет символ по индексу first.
 selectbackground-при выделении текста изменение его заднего фона
 selectforeground-при выделении текста изменение его цвета шрифта
 
-from tkinter import *
+'''
+
+
+
+'''from tkinter import *
+
 root = Tk()
+root.geometry('600x400')
+root.resizable(False,False)
+root.title('Test')
+root.iconbitmap(default='image_and_icons\programming.ico')
+
+count = 0
+def clicker():
+    global count
+    count+=1
+    btn['text']= 'Clicks = ', count # f'Clikcs = {count}'
+
+
+btn = Button(root, text= 'Click on me', state = DISABLED,command=clicker, width = 20, height=10)
+btn['state']= ACTIVE
+btn.pack()
+
+
+root.mainloop()'''
+
+
+
+from tkinter import *
+
+root = Tk()
+root.geometry('600x400')
+root.resizable(False,False)
+root.title('Test')
+root.iconbitmap(default='image_and_icons\programming.ico')
 
 entry = Entry()
-entry.config(background='#afc3e3',font='Roboto 20 bold',justify=LEFT,selectbackground='yellow',selectforeground='blue',bd=15)
-entry.insert(0,'0')
 entry.pack()
 
 def clear():
     entry.delete(0,END)
-
-button1 = Button(text='Clear',command=clear)
-button1.config(background='green')
-button1.pack()
 
 def on_button_click():
     text = entry.get()
@@ -266,71 +265,9 @@ button2 = Button(text="Click to save info!", command=on_button_click)
 button2.pack()
 res_name_lbl = Label(text = 'No name')
 res_name_lbl.pack()
+
+btn = Button(root, text= 'Click on me',command=clear)
+btn.pack()
+
+
 root.mainloop()
-
-'''
-
-
-# PhotoImage
-'''
-Класс PhotoImage в библиотеке Tkinter используется для работы с изображениями в форматах GIF, PGM, PPM и PNG.
-загрузка изображения в формате GIF
-gif_image = PhotoImage(file='image.gif')
-
-# загрузка изображения в формате PNG
-png_image = PhotoImage(file='image.png')
-
-# Для одинакого фона окна и текста 
-# image = PhotoImage(file='bg.gif')
-# label=Label()
-# label.config(image=image)
-'''
-
-
-# Checkbutton
-'''
-
-'''
-
-# Listbox
-'''
-
-'''
-
-# Text
-'''
-
-'''
-
-# Резкое закрытие окна
-'''def finish():  # функция в которой с помощью метода destroy() вручную вызываем закрытие окна (а с ним и всего приложения)
-
-    root.destroy()  # ручное закрытие окна и всего приложения
-    print("Закрытие приложения")
-
-
-root.protocol("WM_DELETE_WINDOW", finish)  # Первый параметр -имя события. Второй параметр представляет функцию,
-# которая вызывается при возникновении события.  
-'''
-
-# Взаимодействие с пользователем
-'''
-#bind
-
-#command
-
-#messagebox
-'''
-
-# Разметка при помощи менеджеров геометрии
-'''
-#pack
-
-#grid
-
-#place
-
-'''
-
-
-
