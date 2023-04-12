@@ -265,6 +265,80 @@ button2 = Button(text="Click to save info!", command=on_button_click)
 button2.pack()
 res_name_lbl = Label(text = 'No name')
 res_name_lbl.pack()
+<<<<<<< HEAD
+||||||| 379a959
+root.mainloop()
+
+'''
+
+
+# PhotoImage
+'''
+Класс PhotoImage в библиотеке Tkinter используется для работы с изображениями в форматах GIF, PGM, PPM и PNG.
+загрузка изображения в формате GIF
+gif_image = PhotoImage(file='image.gif')
+
+# загрузка изображения в формате PNG
+png_image = PhotoImage(file='image.png')
+
+# Для одинакого фона окна и текста 
+# image = PhotoImage(file='bg.gif')
+# label=Label()
+# label.config(image=image)
+'''
+
+
+# Checkbutton
+'''
+
+'''
+
+# Listbox
+'''
+
+'''
+
+# Text
+'''
+
+'''
+
+# Резкое закрытие окна
+'''def finish():  # функция в которой с помощью метода destroy() вручную вызываем закрытие окна (а с ним и всего приложения)
+
+    root.destroy()  # ручное закрытие окна и всего приложения
+    print("Закрытие приложения")
+
+
+root.protocol("WM_DELETE_WINDOW", finish)  # Первый параметр -имя события. Второй параметр представляет функцию,
+# которая вызывается при возникновении события.  
+'''
+
+# Взаимодействие с пользователем
+'''
+#bind
+
+#command
+
+#messagebox
+'''
+
+# Разметка при помощи менеджеров геометрии
+'''
+#pack
+
+#grid
+
+#place
+
+'''
+=======
+root.mainloop()
+
+'''
+
+
+>>>>>>> 8a9a1cd091228243f24b003be406638ade68be3a
 
 btn = Button(root, text= 'Click on me',command=clear)
 btn.pack()
